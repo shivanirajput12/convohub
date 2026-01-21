@@ -5,6 +5,7 @@ import {config} from 'dotenv';
 import fileUpload from 'express-fileupload';
 import { dbConnection } from './database/db.js';
 import userRouter from './routes/user.routes.js';
+import messageRouter from './routes/message.routes.js';
 
 // Initialize Express App
 const app = express();
@@ -33,6 +34,7 @@ app.use(fileUpload({
 }));
 
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/messages', messageRouter);
 
 // Database Connection
 dbConnection();
